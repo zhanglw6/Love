@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Our Love Story</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+	<div id="mainDiv">
+		<div id="content">
+			<div id="code">
+				<span class="comments">/**</span><br />
+				<span class="space"/><span class="comments">* 从认识到现在6年 </span><br />
+				<span class="space"/><span class="comments">* 中间3年多完全失了联络 </span><br />
+				<span class="space"/><span class="comments">* 兜兜转转竟然又碰见了你 </span><br />
+				<span class="space"/><span class="comments">* 这真是我这一年 </span><br />
+				<span class="space"/><span class="comments">* 最棒的 </span><br />
+				<span class="space"/><span class="comments">* 意外之喜 </span><br />
+				<br>
+				<span class="comments">// “可能有些人, 就是怎么都能遇的见” </span><br />
+				<br />
+				<span class="comments">/**</span><br />
+				<span class="space"/><span class="comments"> * 我相信日常最深情。 </span><br />
+				<span class="space"/><span class="comments"> * 无论以后我们会怎样 </span><br />
+				<span class="space"/><span class="comments"> * 不知道现在的你 </span><br />
+				<span class="space"/><span class="comments"> * 愿不愿意陪我踏踏实实做每一点小事 </span><br />
+				<span class="space"/><span class="comments"> * 去经历很多不一定轰轰烈烈 </span><br />
+				<span class="space"/><span class="comments"> * 但就因为是一起做而变得美好的冒泡泡的事情 </span><br />
+				<span class="space"/><span class="comments"> * 一起去度过每个无聊瞬间 </span><br />
+				<span class="space"/><span class="comments"> * 去看世界去疯 </span><br />
+				<span class="space"/><span class="comments"> * 无论疯不疯出个未来？ </span><br />
+
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						To 傻fufu的海海，我们在一起已经
+						<br>
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						希望最幸福的数字可以不分开!<br/>
+						<div class="signature">-你最可爱的文文</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="copyright">
+			Inspired by <a href="http://www.openrise.com/lab/FlowerPower/">FlowerPower</a> project.<br />
+			Copyright © 2011 <a href='http://hackerzhou.me'>hackerzhou.me</a> 2009-2011
+		</div>
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(2018, 9, 13);  //Javascript的setFullYear中月份表示为0-11，0为1月
+		together.setHours(23);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+</body>
+</html>
